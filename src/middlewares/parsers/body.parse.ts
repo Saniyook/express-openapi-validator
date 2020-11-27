@@ -71,6 +71,10 @@ export class BodySchemaParser {
       }
     }
 
+    if (!content && !requestBody.required) {
+      return {};
+    }
+
     if (!content) {
       const msg =
         contentType.contentType === 'not_provided'
